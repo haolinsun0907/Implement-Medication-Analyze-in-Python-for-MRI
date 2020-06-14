@@ -31,41 +31,41 @@ P = number of data points in the brain
 ### Steps
 Fit two regression models
 #### Model1:
-Mi = b0 + Age*b1
-M: brain data, size (NxP)
-Age: vector of ages, size (Nx1)
-i: cycle over all brain locations: P
-b0 : parameter estimate of the constant term in the regression model, size (1xP)
-b1: parameter estimate for the predictor Age, size (1xP)
+Mi = b0 + Age*b1  
+M: brain data, size (NxP)  
+Age: vector of ages, size (Nx1)  
+i: cycle over all brain locations: P  
+b0 : parameter estimate of the constant term in the regression model, size (1xP)  
+b1: parameter estimate for the predictor Age, size (1xP)  
 #### Model 2:
-C = c0 + Age*c1 + Mi*c2
-C: cognitive scores, size (Nx1)
-M: brain data, size (NxP)
-Age: vector of ages, size (Nx1)
-i: cycle over all brain locations: P
-c0 : parameter estimate of the constant term in the regression model, size (1x1)
-c1: parameter estimate for the predictor Age, size (1x1)
-c2: parameter estimate for the predictor brain (Mi) at location i, size (1xP)
-Combine parameters
+C = c0 + Age*c1 + Mi*c2  
+C: cognitive scores, size (Nx1)  
+M: brain data, size (NxP)  
+Age: vector of ages, size (Nx1)  
+i: cycle over all brain locations: P  
+c0 : parameter estimate of the constant term in the regression model, size (1x1)  
+c1: parameter estimate for the predictor Age, size (1x1)  
+c2: parameter estimate for the predictor brain (Mi) at location i, size (1xP)  
+Combine parameters  
 ### Calculate: 
-b1*c2
-Bootstrap these parameters:
-b1 
-You will end up with PxB values
-A b1 value for every data point in the brain (P)
-A b1 for every resample (B)
-c1 
-c2 
-b1*c2
-Jackknife these parameters
-b1 
-c1 
-c2 
-b1*c2
+b1*c2  
+Bootstrap these parameters:  
+b1  
+You will end up with PxB values  
+A b1 value for every data point in the brain (P)  
+A b1 for every resample (B)  
+c1  
+c2  
+b1*c2  
+Jackknife these parameters  
+b1  
+c1  
+c2  
+b1*c2  
 Calculate confidence intervals for these parameters using the bias corrected, accelerated method. Make sure to return the confidence intervals and the Z values. You will want to have a function that takes the bootstrap resamples, jackknife resamples and the point estimates. It returns CI and Z.
-b1 
-c1 
-c2 
-b1*c2
+b1  
+c1  
+c2  
+b1*c2  
 
 Note Step 1c. Mediation and moderated-mediation analyses that I am doing perform a series of regression analyses and then combine the parameters through multiplication. As models become more complicated Models 1 and 2 will become more complicated and additional combinations of parameters will be calculated in step 1c.  To get started feel free to generate random noise for each piece of data to test analyses.
